@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="records">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="row" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="customer_info">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="name" type="xs:string"></xs:element>
+                                        <xs:element name="surname" type="xs:string"></xs:element>
+                                        <xs:element name="gender" type="xs:string"></xs:element>
+                                        <xs:element name="occupacy" type="xs:string"></xs:element>
+                                        <xs:element name="level_of_education" type="xs:string"></xs:element>
+                                        <xs:element name="email" type="xs:string"></xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="bank_info">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="bank_account_number" type="xs:string"></xs:element>
+                                        <xs:element name="iban" type="xs:string"></xs:element>
+                                        <xs:element name="account_type"></xs:element>
+                                        <xs:element name="total_balance_available">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute name="currency_unit" type="xs:string" use="required"/>
+                                                        <xs:attribute name="bigEnd_version" type="xs:string" use="required"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="available_for_loan" type="xs:string"></xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:string" use="required"></xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
